@@ -522,3 +522,29 @@ bind = ":9290"
  exec_expected_positive_output = "1"
  exec_expected_negative_output = "0"
  timeout = "5s"
+
+[servers.channels-bo]
+ bind = "0.0.0.0:9110"
+ protocol = "udp"
+ balance = "roundrobin"
+ backend_idle_timeout="0"
+ client_idle_timeout="0"
+
+[servers.channels-bo.udp]
+ max_requests = 1
+ max_responses = 0
+
+[servers.channels-bo.discovery]
+ kind = "static"
+ static_list = [
+  "as-logstash-00:9110",
+  "as-logstash-01:9110"
+ ]
+
+[servers.channels-bo.healthcheck]
+ interval = "30s"
+ kind = "exec"
+ exec_command = "./cache-hc.sh"
+ exec_expected_positive_output = "1"
+ exec_expected_negative_output = "0"
+ timeout = "5s"

@@ -19,7 +19,8 @@ const teams = [
   {"port": 9106, "team": "soluciones"},
   {"port": 9107, "team": "cancel"},
   {"port": 9108, "team": "cambios-nonair"},
-  {"port": 9109, "team": "cambios-air"}
+  {"port": 9109, "team": "cambios-air"},
+  {"port": 9110, "team": "channels-bo"}
 ];
 
 function getScriptName(isTrueHc){
